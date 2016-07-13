@@ -11,9 +11,16 @@ router.get('/', function(req, res, next) {
   });
 });
 // delete
-router.get('/:id/delete',function(req,res,next){
+router.get('/:id/delete-book',function(req,res,next){
   knex('author_book').where({book_id: req.params.id}).del().then(function(data){
     knex('book').where({id: req.params.id}).del().then(function(data){
+      res.redirect('/');
+    });
+  });
+});
+router.get('/:id/delete-author',function(req,res,next){
+  knex('author_book').where({author_id: req.params.id}).del().then(function(data){
+    knex('author').where({id: req.params.id}).del().then(function(data){
       res.redirect('/');
     });
   });
