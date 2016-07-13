@@ -1,0 +1,27 @@
+
+    <section class="book-author-info">
+            <p> Author: {{data.first_name}} {{data.last_name}}</p>
+            <div class="author-img">
+                <img class="author-img" src="{{data.portrait}}" alt="book img" />
+            </div>
+            <p>Author biography: {{data.biography}} </p>
+        </div>
+    </section>
+
+
+<form class="" action="/{{data.id}}/author-info" method="post">
+  <label for="first_name"> Author First Name
+<input type='text' name="first_name" value="{{data.first_name}}" >
+</label><br>
+<label for="last_name"> Author last Name
+<input type='text' name="last_name" value="{{data.last_name}}" >
+</label><br>
+biography
+<label for="portrait"> Author portrait
+<input type='text' name="portrait" value="{{data.portrait}}" >
+</label><br>
+<lable for="biography">Author biography
+<textarea name="biography">{{data.biography}}</textarea>
+</label><br>
+  <button type="submit">edit author info</button>
+</form>

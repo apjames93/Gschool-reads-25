@@ -1,0 +1,17 @@
+<section class="book-info">
+  {{#each data}}
+    <div class= 'info'>
+      {{this.title}}
+    <div class="book-img">
+          <img class="book-img" src="{{this.cover}}" alt="book img"/>
+    </div>
+    <div>
+      <button type="button">
+      <a href='/{{this.id}}/book-info'>
+        More Info
+      </a>
+      </button>
+    </div>
+  </div>
+  {{/each}}
+</section>

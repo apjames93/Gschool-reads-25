@@ -1,0 +1,17 @@
+.book-info{
+  display: flex;
+  // flex-direction: row;
+  flex-wrap: wrap;
+  margin: 2vw;
+  background-color: black;
+  height: 50vw;
+  width: 80vw;
+  overflow: scroll;
+}
+.info{
+  background-color: white;
+  height: 21vw;
+  width: 21vw;
+  margin: 1vw;
+  padding: 1vw;
+}
