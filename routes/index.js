@@ -66,25 +66,65 @@ router.get('/add', function(req, res, next ){
 // ///add new book
 
 router.post('/add', function(req, res, next){
-
   return knex('author').select('id').where({first_name: req.body.first_name, last_name: req.body.last_name}).returning('id').then(function(author){
-    if(author[0] === undefined){
-      return knex('author').insert({first_name:req.body.first_name,last_name: req.body.last_name, biography: req.body.biography, portrait: req.body.portrait}).returning('id');
+    return knex('book').select('id').where({title: req.body.title}).returning('book.id').then(function(book){
+      if(author[0] !== undefined && book[0] !== undefined ){
+        console.log('yes');
+        console.log(author[0].id, book[0].id);
+        return knex('author_book').insert({book_id: book[0].id, author_id: author[0].id}).then(function(){
+          res.redirect('/');
+        });
+      }if(book[0] === undefined && author[0] === undefined){
+        return  knex('book').insert({title: req.body.title, genre: req.body.genre, description: req.body.description, cover: req.body.cover}).returning('id')
+        .then(function(book){
+         return knex('author').insert({first_name:req.body.first_name,last_name: req.body.last_name, biography: req.body.biography, portrait: req.body.portrait}).returning('id')
+        .then(function(author){
+          return knex('author_book').insert({book_id: book[0], author_id: author[0]}).then(function(){
+            res.redirect('/');
+          });
+        });
+        });
+      }if(book[0] === undefined && author[0] !== undefined){
+        return  knex('book').insert({title: req.body.title, genre: req.body.genre, description: req.body.description, cover: req.body.cover}).returning('id')
+        .then(function(book){
+          console.log(book);
+          console.log(author);
+          return knex('author_book').insert({book_id: book[0], author_id: author[0].id}).then(function(){
+            res.redirect('/');
+          });
+      });
+    }if(book[0] !== undefined && author[0] === undefined){
+      return knex('author').insert({first_name:req.body.first_name,last_name: req.body.last_name, biography: req.body.biography, portrait: req.body.portrait}).returning('id')
+      .then(function(author){
+        return knex('author_book').insert({book_id: book[0].id, author_id: author[0]}).then(function(){
+          res.redirect('/');
+        });
+    });
+  }
+    });
+  });
+});
 
-    } return id
-  }).then(function(author){
-    return knex('book').select('id').where({title: req.body.title}).returning('book.id')
-    .then(function(book){
-      if(book[0] === undefined){
-        return  knex('book').insert({title: req.body.title, genre: req.body.genre, description: req.body.description, cover: req.body.cover}).returning('id');
-      }
-    }).then(function(book){
-      return knex('author_book').insert({book_id: book[0], author_id: author[0]});
-    }).then(function(){
-      res.redirect('/')
-    })
-  })
-})
+// router.post('/add', function(req, res, next){
+//
+//   return knex('author').select('id').where({first_name: req.body.first_name, last_name: req.body.last_name}).returning('id').then(function(author){
+//     if(author[0] === undefined){
+//       return knex('author').insert({first_name:req.body.first_name,last_name: req.body.last_name, biography: req.body.biography, portrait: req.body.portrait}).returning('id');
+//
+//     } return id
+//   }).then(function(author){
+//     return knex('book').select('id').where({title: req.body.title}).returning('book.id')
+//     .then(function(book){
+//       if(book[0] === undefined){
+//         return  knex('book').insert({title: req.body.title, genre: req.body.genre, description: req.body.description, cover: req.body.cover}).returning('id');
+//       }
+//     }).then(function(book){
+//       return knex('author_book').insert({book_id: book[0], author_id: author[0]});
+//     }).then(function(){
+//       res.redirect('/')
+//     })
+//   })
+// })
 
 
 
