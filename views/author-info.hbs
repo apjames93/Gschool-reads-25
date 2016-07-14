@@ -11,19 +11,19 @@
     </section>
 
 
-<form class="" action="/{{data.id}}/author-info" method="post">
-  <label for="first_name"> Author First Name
+<form class="form" action="/{{data.id}}/author-info" method="post">
+  <h3>Edit {{data.first_name}} {{data.last_name}} info</h3>
+  <label for="first_name"> Author First Name: <br>
 <input type='text' name="first_name" value="{{data.first_name}}" >
 </label><br>
-<label for="last_name"> Author last Name
+<label for="last_name"> Author last Name: <br>
 <input type='text' name="last_name" value="{{data.last_name}}" >
 </label><br>
-biography
-<label for="portrait"> Author portrait
+<label for="portrait"> Author portrait: <br>
 <input type='text' name="portrait" value="{{data.portrait}}" >
 </label><br>
-<lable for="biography">Author biography
+<lable for="biography">Author biography: <br>
 <textarea name="biography">{{data.biography}}</textarea>
-</label><br>
+</label><br> <br>
   <button type="submit">edit author info</button>
 </form>

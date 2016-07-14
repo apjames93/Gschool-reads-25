@@ -42,7 +42,7 @@ a {
 .author-img,
 .book-img {
   height: 15vw;
-  width: auto; }
+  width: 10vw; }
 
 .book-info {
   display: flex;
@@ -75,5 +75,39 @@ a {
   width: 21vw;
   margin: 1vw;
   padding: 1vw; }
+
+.form {
+  color: black;
+  padding: 2vw;
+  margin: 4vw;
+  background-color: black;
+  height: 65vw;
+  overflow: scroll;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start; }
+
+.form-input {
+  margin: 1vw; }
+
+textarea {
+  height: 30vw;
+  width: 60vw;
+  overflow: scroll; }
+
+.add-text-area {
+  height: 5vw;
+  width: 35vw; }
+
+.add-form {
+  background-color: white;
+  border-style: solid;
+  border-color: black;
+  height: 30vw;
+  width: 40vw;
+  margin: 1vw; }
+
+.form-container {
+  display: flex; }
 
 /*# sourceMappingURL=style.css.map */
