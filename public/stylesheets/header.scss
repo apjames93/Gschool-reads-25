@@ -11,12 +11,19 @@
 }
 header{
 background-color: black;
-  width: 90vw;
 }
 .main-logo {
   height: 10vw;
   width: auto;
   padding: 1vw;
+  @media only screen and (max-width: 768px){
+    height: 15vw;
+  }
+}
+.header-h1{
+  @media only screen and (max-width: 768px){
+    text-align: right;
+  }
 }
 h1 ,h3{
   color: white;
@@ -26,4 +33,16 @@ h1 ,h3{
 a{
   color:inherit;
   text-decoration: none
+}
+.div-dropdown {
+   padding: 2vw;
+   margin: 1vw;
+  button{
+    background-color: black;
+    color: white;
+    &:focus{
+      background-color: black;
+      color: white;
+    }
+  }
 }

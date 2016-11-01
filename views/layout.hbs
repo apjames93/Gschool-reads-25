@@ -4,15 +4,44 @@
 <head>
     <title>{{title}}</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
-<header class= "flex-container-header">
-<img class= "main-logo" src="https://cdn.evbuc.com/eventlogos/65503631/galvanizegalvanizelogotextlogo28129.png" alt="galvanize logo" />
-<h1><a href="/"> Galvanize Reads </a></h1>
-<h3> <a href="/author">Authors</a></h3>
-<h3> <a href="/book">Books </a></h3>
-<h3> <a href="/add"> Add New Book </a></h3>
+<header class="container-fluid">
+    <div class="row">
+<div class="col-md-1 col-xs-2">
+  <img class="main-logo" src="https://cdn.evbuc.com/eventlogos/65503631/galvanizegalvanizelogotextlogo28129.png" alt="galvanize logo" />
+</div>
+
+<div class="col-md-5 col-xs-10">
+  <h1 class='header-h1'><a href="/"> Galvanize Reads </a></h1>
+</div>
+
+<div class="col-md-6 col-xs-12">
+  <div class="dropdown pull-right div-dropdown">
+    <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      Menu
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <li><a href="/"> Galvanize Reads </a></li>
+      <li> <a href="/author">Authors</a></li>
+      <li><a href="/book">Books </a></li>
+      <li> <a href="/add"> Add author to Book </a></li>
+    </ul>
+  </div>
+</div>
+
+
+
+
+    </div>
+
 </header>
+
+
 <body>
     {{{body}}}
 </body>

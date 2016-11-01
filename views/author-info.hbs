@@ -1,39 +1,45 @@
-
-    <section class="book-author-info">
-            <p> Author: {{data.first_name}} {{data.last_name}}</p>
-            <div class="author-img">
-                <img class="author-img" src="{{data.portrait}}" alt="book img" />
+ <button class= "btn btn-danger col-xs-12"type="button">
+  <a href='/{{data.id}}/delete-author'>
+        Delete author {{data.first_name}} {{data.last_name}}
+  </a>
+  </button>
+    <section class="author-info">
+      <div class=" container-fluid ">
+        <div class="row">
+          <div class= 'col-md-2 col-xs-12'>
+            <h3>{{data.first_name}} {{data.last_name}}</h3>
+          </div>
+        </div>
+        <div class="row">
+            <div class=" col-md-12 col-xs-12 author-img">
+              <img class="author-img" src="{{data.portrait}}" alt="author img"/>
             </div>
-            <p>Author biography: {{data.biography}} </p>
-            <button type="button">
-       <a href="/{{data.id}}/delete-author">Delete author {{data.first_name}} {{data.last_name}}</a>
-       </button>
+          </div>
+            <div class="col-md-12 col-xs-12 text">
+              <p> {{data.biography}} </p>
+            </div>
+
+        </div>
     </section>
-
-
-<section class='form'>
-<form class="form" action="/{{data.id}}/author-info" method="post">
-
-        <section class= 'add-form'>
-          <h3>Edit {{data.first_name}} {{data.last_name}} info</h3>
-          <label for="first_name"> Author First Name: <br>
-        <input type='text' name="first_name" value="{{data.first_name}}" >
-        </label><br>
-        <label for="last_name"> Author last Name: <br>
-        <input type='text' name="last_name" value="{{data.last_name}}" >
-        </label><br>
-        <label for="portrait"> Author portrait: <br>
-        <input type='text' name="portrait" value="{{data.portrait}}" >
-        </label><br>
-        <lable for="biography">Author biography: <br>
-        <textarea name="biography">{{data.biography}}</textarea>
-        </label><br> <br>
-          <button type="submit">edit author info</button>
-          </section>
-
-  </div>
-
-</form>
-
-
-</section>
+    <section class= "container-fluid author-info">
+      <h3> Edit {{data.first_name}} {{data.last_name}}</h3>
+      <form class="form" action="/{{data.id}}/author-info" method="post">
+        <fieldset class="form-group">
+          <label for="first_name">First name</label>
+          <input type="text" class="form-control" value="{{data.first_name}}"  placeholder="Enter author first name" name= "first_name">
+        </fieldset>
+        <fieldset class="form-group">
+          <label for="last_name">First name</label>
+          <input type="text" class="form-control" value="{{data.last_name}}"  placeholder="Enter author last name" name= 'last_name'>
+        </fieldset>
+        <fieldset class="form-group">
+          <label for="portrait">portrait</label>
+          <input type="text" class="form-control" value="{{data.portrait}}"  placeholder="Enter author url for portrait" name= "portrait">
+        </fieldset>
+        <fieldset class="form-group">
+          <label for="biography">Author biography:</label>
+          <textarea class="form-control"  rows="3" name="biography">{{data.biography}}</textarea>
+        </fieldset>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+  </section>

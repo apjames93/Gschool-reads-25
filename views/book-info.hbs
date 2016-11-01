@@ -1,42 +1,50 @@
-
-    <section class="book-author-info">
-        <h4> title: {{data.title}}</h4>
-        <div class="book-author">
-            <div class="book-img">
-                <img class="book-img" src="{{data.cover}}" alt="book img" />
-            </div>
-
-            <p> Genre: {{data.genre}}</p>
-            <p>Book description: {{data.description}} </p>
-        </div>
-        <button type="button">
-   <a href="/{{data.id}}/delete-book">delete {{data.title}}</a>
-   </button>
-    </section>
+<button class= "btn btn-danger col-xs-12"type="button">
+ <a href='/{{data.id}}/delete-book'>
+       Delete book {{data.title}}
+ </a>
+ </button>
 
 <section class= 'form'>
+  <section class="author-info">
+    <div class=" container-fluid ">
+      <div class="row">
+        <div class= 'col-md-2 col-xs-12'>
+          <h3>{{data.title}}</h3>
+        </div>
+      </div>
+      <div class="row">
+          <div class=" col-md-12 col-xs-12 author-img">
+            <img class="book-img" src="{{data.cover}}" alt="book img"/>
+          </div>
+        </div>
+          <div class="col-md-12 col-xs-12 text">
+            <p> {{data.description}} </p>
+          </div>
+
+      </div>
+  </section> 
 
 
-<form class="form" action="/{{data.id}}/book-info" method="post">
 
-  <h3>Edit {{data.title}}</h3>
-  <label for="Title"> Title
-<input type='text' name="title" value="{{data.title}}" >
-</label><br>
-<label for="genre"> Genre
-<input type='text' name="genre"value="{{data.genre}}" >
-</label><br>
-<label for="description"> Description :<br>
-<textarea name="description" placeholder="add book description">{{data.description}}</textarea>
-</label><br>
-<label for="cover">Book cover URL
-<input type='text' name="cover" value="{{data.cover}}" >
-</label><br>
-  <button type="submit">edit book</button>
-
-  </div>
-
-</form>
-
-
+<section class= "container-fluid author-info">
+  <h3> Edit {{data.title}}</h3>
+  <form class="form" action="/{{data.id}}/book-info" method="post">
+    <fieldset class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" value="{{data.title}}"  placeholder="Enter author first name" name= "title">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="genre">Genre</label>
+      <input type="text" class="form-control" value="{{data.genre}}"  placeholder="Enter genre" name= 'genre'>
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="cover">Book cover URL</label>
+      <input type="text" class="form-control" value="{{data.cover}}"  placeholder="Enter book url for cover" name= "cover">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="description">{{data.title}} description:</label>
+      <textarea class="form-control"  rows="3" name="biography">{{data.description}}</textarea>
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
 </section>

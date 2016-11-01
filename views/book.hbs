@@ -1,23 +1,27 @@
-<button type="button">
+<button class= "btn btn-primary col-xs-12"type="button">
  <a href='/add-book'>
-       add book
+       Add book
  </a>
  </button>
-<section class="book-info">
 
+<div class=" container-fluid author-info">
+<div class="row">
   {{#each data}}
-    <div class= 'info'>
-      {{this.title}}
-    <div class="book-img">
-          <img class="book-img" src="{{this.cover}}" alt="book img"/>
-    </div>
-    <div>
-      <button type="button">
+    <div class= 'col-md-4 col-xs-12'>
+      <div class="info">
+      <h4>{{this.title}} </h4>
+      <div class="author-img">
+            <img class="author-img" src="{{this.cover}}" alt="book img"/>
+      </div>
+      <div>
       <a href='/{{this.id}}/book-info'>
-        More Info
+        <button class="col-xs-12 btn btn-primary"type="button">
+          More Info
+        </button>
       </a>
-      </button>
-    </div>
+      </div>
+      </div>
   </div>
   {{/each}}
-</section>
+</div>
+</div>

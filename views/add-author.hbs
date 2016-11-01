@@ -1,26 +1,22 @@
-<section class='form'>
-<form class="form" action="/add-author" method="post">
-<h3>add author</h3>
-        <section class= 'add-form'>
-
-          <label for="first_name"> Author First Name: <br>
-        <input type='text' name="first_name"  >
-        </label><br>
-        <label for="last_name"> Author last Name: <br>
-        <input type='text' name="last_name" >
-        </label><br>
-        <label for="portrait"> Author portrait: <br>
-        <input type='text' name="portrait" >
-        </label><br>
-        <lable for="biography">Author biography: <br>
-        <textarea name="biography"></textarea>
-        </label><br> <br>
-          <button type="submit">add author</button>
-          </section>
-
-  </div>
-
-</form>
-
-
+<section class= "container-fluid author-info">
+  <h3> Edit {{data.first_name}} {{data.last_name}}</h3>
+  <form class="form" action="/add-author" method="post">
+    <fieldset class="form-group">
+      <label for="first_name">First name</label>
+      <input type="text" class="form-control" value="{{data.first_name}}"  placeholder="Enter author first name" name= "first_name">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="last_name">First name</label>
+      <input type="text" class="form-control" value="{{data.last_name}}"  placeholder="Enter author last name" name= 'last_name'>
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="portrait">portrait</label>
+      <input type="text" class="form-control" value="{{data.portrait}}"  placeholder="Enter author url for portrait" name= "portrait">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="biography">Author biography:</label>
+      <textarea class="form-control"  rows="3" name="biography" placeholder="add biography">{{data.biography}}</textarea>
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
 </section>

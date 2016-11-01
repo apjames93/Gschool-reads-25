@@ -1,17 +1,15 @@
 .author-info{
-  display: flex;
-  // flex-direction: row;
-  flex-wrap: wrap;
-  margin: 2vw;
+  margin-top: 2vw;
   background-color: black;
-  height: 50vw;
-  width: 80vw;
-  overflow: scroll;
 }
 .info{
   background-color: white;
-  height: 21vw;
-  width: 21vw;
-  margin: 1vw;
-  padding: 1vw;
+  height: auto;
+  margin-top: 1vw;
+  width: 100%;
+
+}
+.author-img{
+  margin-bottom: 1vw;
+  margin-left: 1vw;
 }
